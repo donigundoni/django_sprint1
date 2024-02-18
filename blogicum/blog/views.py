@@ -43,9 +43,11 @@ posts = [
     },
 ]
 
+
 def index(request):
     context = {'posts': posts}
     return render(request, 'blog/index.html', context)
+
 
 def post_detail(request, id):
     post = next((post for post in posts if post['id'] == id), None)
@@ -55,7 +57,10 @@ def post_detail(request, id):
     else:
         return render(request, 'blog/post_not_found.html')
 
+
 def category_posts(request, category_slug):
-    category_posts = [post for post in posts if 'category' in post and post['category'] == category_slug]
-    context = {'category_posts': category_posts, 'category_slug': category_slug}
+    category_posts = [post for post in posts if 'category'
+                      in post and post['category'] == category_slug]
+    context = {'category_posts': category_posts,
+               'category_slug': category_slug}
     return render(request, 'blog/category.html', context)
