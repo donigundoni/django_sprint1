@@ -51,11 +51,17 @@ def index(request):
 
 def post_detail(request, id):
     post = next((post for post in posts if post['id'] == id), None)
-    if post:
-        context = {'post': post}
-        return render(request, 'blog/detail.html', context)
-    else:
+
+    if not post:
         return render(request, 'blog/post_not_found.html')
+
+    context = {'post': post}
+
+    template_name = 'blog/detail.html'
+    if request.GET.get('view') == 'card':
+        template_name = 'posts/includes/post_card.html'
+
+    return render(request, template_name, context)
 
 
 def category_posts(request, category_slug):

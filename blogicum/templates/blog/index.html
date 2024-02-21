@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Лента записей
+{% endblock %}
+
+{% block content %}
+  <h1>Лента записей</h1>
+  <hr>
+  {% for post in posts reversed %}
+    {% include 'posts/includes/post_card.html' with truncating_text=True %}
+  {% endfor %}
+{% endblock %}

@@ -1,6 +1,3 @@
-{% extends 'base.html' %}
-{% block title %}{{ post.location }}. {{ post.date }}{% endblock %}
-{% block content %}
 <article>
   <ul>
     <li>
@@ -13,8 +10,5 @@
       Категория: <a href="{{ post.category }}">{{ post.category }}</a>
     </li>
   </ul>
-  <p>
-    {{ post.text }}
-  </p>
+  {{ post.text|linebreaks }}
 </article>
-{% endblock %}

@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
-{% block title %}Публикации в категории - {{ category_slug }}{% endblock %}
+
+{% block title %}
+    Публикации в категории - {{ category_slug }}
+{% endblock %}
+
 {% block content %}
 <main>
-  <div class="container py-5">
     <h1>Публикации в категории - {{ category_slug }}</h1>
     {% if category_posts %}
       <ul>
@@ -13,8 +16,9 @@
         {% endfor %}
       </ul>
     {% else %}
-      <p>В этой категории пока нет публикаций.</p>
+      <p>
+          В этой категории пока нет публикаций.
+      </p>
     {% endif %}
-  </div>
 </main>
 {% endblock %}
